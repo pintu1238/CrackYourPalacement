@@ -10,15 +10,25 @@
  */
 class Solution {
 public:
-    ListNode* reverseList(ListNode* head) {
-        ListNode* prev = NULL;
-        ListNode* curr = head;
-        while (curr) {
-            ListNode* nextTemp = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = nextTemp;
+    ListNode* reverseList(ListNode * head) {
+        vector<int>ans;
+        ListNode *temp=head;
+        while(temp)
+        {
+            ans.push_back(temp->val);
+            temp=temp->next;
         }
-        return prev;
+        
+        int i=ans.size()-1;
+        temp=head;
+        
+        while(temp)
+        {
+            temp->val=ans[i];
+            i--;
+            temp=temp->next;
+
+        }
+        return head;
     }
 };
