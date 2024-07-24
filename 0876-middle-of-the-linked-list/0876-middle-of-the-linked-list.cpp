@@ -8,7 +8,8 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
-class Solution {
+
+/*class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
         int count=0;
@@ -32,3 +33,21 @@ public:
         return temp;
     }
 };
+*/
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        //slow 1 step aage badhega
+        ListNode *slow=head;
+        //fast node 2 step aage bdhega
+        ListNode *fast=head;
+        
+        while(fast!=NULL && fast->next !=NULL)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        return slow;
+    }
+};
+
